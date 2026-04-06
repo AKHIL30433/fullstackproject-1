@@ -1,17 +1,19 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import Jobs from './pages/Jobs';
-import Applications from './pages/Applications';
-import Students from './pages/Students';
-import Schedule from './pages/Schedule';
-import Reports from './pages/Reports';
+import { AuthProvider, useAuth } from './context/AuthContext.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Jobs from './pages/Jobs.jsx';
+import Applications from './pages/Applications.jsx';
+import Students from './pages/Students.jsx';
+import Schedule from './pages/Schedule.jsx';
+import Reports from './pages/Reports.jsx';
+
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
   return user ? children : <Navigate to="/" />;
 };
+
 function App() {
   return (
     <AuthProvider>
@@ -30,4 +32,5 @@ function App() {
     </AuthProvider>
   );
 }
+
 export default App;
