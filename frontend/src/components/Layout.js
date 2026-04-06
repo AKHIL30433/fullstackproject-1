@@ -1,15 +1,13 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-
 const allNavItems = [
-  { path: '/dashboard', label: 'Dashboard', icon: '⊞', roles: ['admin', 'student'] },
-  { path: '/students', label: 'Students', icon: '👤', roles: ['admin'] },
-  { path: '/jobs', label: 'Job Postings', icon: '💼', roles: ['admin', 'student'] },
+  { path: '/dashboard', label: 'Dashboard', icon: '⊞', roles: ['admin','student'] },
+  { path: '/students',  label: 'Students',  icon: '👤', roles: ['admin'] },
+  { path: '/jobs',      label: 'Job Postings', icon: '💼', roles: ['admin','student'] },
   { path: '/applications', label: 'Applications', icon: '📄', roles: ['admin'] },
-  { path: '/schedule', label: 'Schedule', icon: '📅', roles: ['admin', 'student'] },
-  { path: '/reports', label: 'Reports', icon: '📊', roles: ['admin'] },
+  { path: '/schedule',  label: 'Schedule',  icon: '📅', roles: ['admin','student'] },
+  { path: '/reports',   label: 'Reports',   icon: '📊', roles: ['admin'] },
 ];
-
 export default function Layout({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
