@@ -1,23 +1,28 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-const navItems = [
-  { path: '/dashboard', label: 'Dashboard', icon: '⊞' },
-  { path: '/students', label: 'Students', icon: '👤' },
-  { path: '/jobs', label: 'Job Postings', icon: '💼' },
-  { path: '/applications', label: 'Applications', icon: '📄' },
-  { path: '/schedule', label: 'Schedule', icon: '📅' },
-  { path: '/reports', label: 'Reports', icon: '📊' },
-];
+
 export default function Layout({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useAuth();
+  
+  const allNavItems = [
+    { path: '/dashboard', label: 'Dashboard', icon: '⊞', roles: ['admin', 'student'] },
+    { path: '/students', label: 'Students', icon: '👤', roles: ['admin'] },
+    { path: '/jobs', label: 'Job Postings', icon: '💼', roles: ['admin', 'student'] },
+    { path: '/applications', label: 'Applications', icon: '📄', roles: ['admin'] },
+    { path: '/schedule', label: 'Schedule', icon: '📅', roles: ['admin', 'student'] },
+    { path: '/reports', label: 'Reports', icon: '📊', roles: ['admin'] },
+  ];
+  
+  const navItems = allNavItems.filter(item => item.roles.includes(user?.role));
   const handleLogout = () => { logout(); navigate('/'); };
+
   return (
     <div style={{display:'flex',height:'100vh',fontFamily:"'Segoe UI',sans-serif",background:'#f3f4f6'}}>
       <div style={{width:'240px',background:'#fff',borderRight:'1px solid #e5e7eb',display:'flex',flexDirection:'column'}}>
         <div style={{padding:'20px',borderBottom:'1px solid #f3f4f6'}}>
-          <div style={{fontSize:'13px',fontWeight:'700',color:'#111827',lineHeight:'1.4'}}>Work-Study Management System</div>
+          <div style={{fontSize:'13px',fontWeight:'700',color:'#111827'}}>Work-Study Management System</div>
           <div style={{fontSize:'11px',color:'#9ca3af',marginTop:'2px'}}>FSAD-PS42</div>
         </div>
         <nav style={{padding:'12px',flex:1,display:'flex',flexDirection:'column',gap:'2px'}}>
