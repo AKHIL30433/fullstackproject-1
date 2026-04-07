@@ -39,10 +39,10 @@ A full-stack web application to manage student work-study programs on campus.
 
 ---
 
-## Features
+## Features:
 
 
-### Student Role:
+### Student Role:-
 - Register and login securely
 - Browse and search job postings
 - Apply for open positions with one click
@@ -50,7 +50,7 @@ A full-stack web application to manage student work-study programs on campus.
 - View work schedule
 
 
-### Admin Role:
+### Admin Role:-
 - Post and manage job listings
 - Approve or reject student applications
 - Add and manage student records
