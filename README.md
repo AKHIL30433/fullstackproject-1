@@ -4,6 +4,7 @@ cat > /Users/sai/Documents/pro-1/README.md << 'EOF'
 
 A full-stack web application to manage student work-study programs on campus.
 
+
 ---
 
 ## Team Members
@@ -55,5 +56,6 @@ A full-stack web application to manage student work-study programs on campus.
 - View reports and analytics
 
 ---
+
 
 ##Project Structure
